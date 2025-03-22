@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 # Most users will use pyproject.toml
 setup(
     name="wclip",
-    version="0.1.1",
+    version="0.1.2",
     packages=find_packages(),
     install_requires=[
         "pyperclip>=1.8.0",

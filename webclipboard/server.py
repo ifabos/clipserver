@@ -261,7 +261,7 @@ class WebClipboardHandler(http.server.SimpleHTTPRequestHandler):
                 .content {
                     flex: 1;
                     padding: 1rem;
-                    display: flex;
+                    #display: flex;
                     justify-content: center;
                     align-items: center;
                 }
