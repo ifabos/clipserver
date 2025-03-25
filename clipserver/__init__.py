@@ -1,5 +1,5 @@
 """
-Webclipboard - A web-based clipboard sharing server
+Clipserver - A web-based clipboard sharing server
 
 This module provides a simple web server that allows you to access
 your clipboard content through a web interface.

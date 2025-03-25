@@ -3,12 +3,12 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "wclip"
+name = "clipserver"
 version = "0.1.2"
 description = "A web-based clipboard sharing server"
 readme = "README.md"
 authors = [
-    {name = "Webclipboard Contributors"}
+    {name = "Clipserver Contributors"}
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -25,12 +25,13 @@ classifiers = [
 keywords = ["clipboard", "web", "server", "utility"]
 dependencies = [
     "pyperclip>=1.8.0",
+    "PyYAML>=6.0"  # 新增PyYAML依赖
 ]
 requires-python = ">=3.6"
 
 [project.urls]
-"Homepage" = "https://github.com/ifabos/webclipboard"
-"Bug Tracker" = "https://github.com/ifabos/webclipboard/issues"
+"Homepage" = "https://github.com/ifabos/clipserver"
+"Bug Tracker" = "https://github.com/ifabos/clipserver/issues"
 
 [project.scripts]
-webclipboard = "webclipboard.__main__:main"
+clipserver = "clipserver.__main__:main"

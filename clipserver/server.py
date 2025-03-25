@@ -16,6 +16,7 @@ import pyperclip
 from urllib.parse import parse_qs
 import threading
 import webbrowser
+import yaml  # 新增YAML导入
 
 # Default configuration
 DEFAULT_PORT = 8080
@@ -400,8 +401,22 @@ def start_server(port=DEFAULT_PORT, open_browser=True):
     Returns:
         None
     """
-    # Generate random token
-    auth_token = ''.join(random.choices(string.ascii_letters + string.digits, k=TOKEN_LENGTH))
+    config_path = os.path.expanduser('~/.config/clipserver.yml')  # 新增配置路径
+    auth_token = None  # 新增变量
+    
+    password = None
+    try:
+        with open(config_path, 'r') as f:
+            config = yaml.safe_load(f)  # 读取YAML配置
+            password = config.get('password')  # 获取密码配置
+            if password:
+                auth_token = password  # 使用配置中的密码
+    except (FileNotFoundError, PermissionError, yaml.YAMLError):  # 处理文件/解析错误
+        pass  # 使用随机生成的密码
+    
+    if auth_token is None:  # 如果未找到配置密码
+        auth_token = ''.join(random.choices(string.ascii_letters + string.digits, k=TOKEN_LENGTH))  # 生成随机密码
+        
     authenticated_sessions = set()
     
     # Create custom handler class with auth token
@@ -413,7 +428,7 @@ def start_server(port=DEFAULT_PORT, open_browser=True):
         
         print(f"Web Clipboard Server started at http://localhost:{port}")
         print(f"Username: {USERNAME}")
-        print(f"Password: {auth_token}")
+        print(f"Password: {'********' if password else auth_token}")
         
         # Open browser after a short delay
         if open_browser:
