@@ -1,4 +1,4 @@
-# Webclipboard
+# Clipserver
 
 A simple web-based clipboard sharing server that allows you to access your clipboard content through a web interface.
 
@@ -19,22 +19,22 @@ pip install wclip
 
 ### Command Line
 
-Simply run the webclipboard command:
+Simply run the clipserver command:
 
 ```bash
-webclipboard
+clipserver
 ```
 
 Or run as a module:
 
 ```bash
-python -m webclipboard
+python -m clipserver
 ```
 
 ### Options
 
 ```
-webclipboard [--port PORT] [--no-browser]
+clipserver [--port PORT] [--no-browser]
   --port PORT      Specify the port to run the server on (default: 8080)
   --no-browser     Don't automatically open the browser
   --help           Show this help message
@@ -43,7 +43,7 @@ webclipboard [--port PORT] [--no-browser]
 ### As a Library
 
 ```python
-from webclipboard import start_server
+from clipserver import start_server
 
 # Start with default settings
 start_server()

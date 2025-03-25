@@ -11,7 +11,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'webclipboard=webclipboard.__main__:main',
+            'clipserver=clipserver.__main__:main',
         ],
     },
     python_requires='>=3.6',

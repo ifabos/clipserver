@@ -1,5 +1,5 @@
 """
-Command-line interface for the webclipboard module.
+Command-line interface for the clipserver module.
 """
 
 import argparse
